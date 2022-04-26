@@ -10,31 +10,31 @@ Determiná que será impreso en la consola, sin ejecutar el código.
 > Investiga cuál es la diferencia entre declarar una variable con `var` y directamente asignarle un valor.
 
 ```javascript
-x = 1;
-var a = 5;
-var b = 10;
+x = 1; // DUEVUELVE 1
+var a = 5; // imprime 5
+var b = 10; //imprime 10
 var c = function(a, b, c) {
   var x = 10;
-  console.log(x);
-  console.log(a);
+  console.log(x); //imprime 10
+  console.log(a); // imprime 5
   var f = function(a, b, c) {
     b = a;
-    console.log(b);
-    b = c;
-    var x = 5;
+    console.log(b); //imprime 5
+    b = c; // b es igual a var c que contiene una function
+    var x = 5; //cambia el valor global de x a 5 luego de pasar por esta function
   }
   f(a,b,c);
-  console.log(b);
+  console.log(b); //imprime undefined?
 }
 c(8,9,10);
-console.log(b);
-console.log(x);
+console.log(b); //imprime 9
+console.log(x);// imprime 5?
 ```
 
 ```javascript
-console.log(bar);
-console.log(baz);
-foo();
+console.log(bar); //imprime 1
+console.log(baz);// imprime 2
+foo(); // imprime "Hola!"
 function foo() { console.log('Hola!'); }
 var bar = 1;
 baz = 2;
@@ -45,19 +45,19 @@ var instructor = "Tony";
 if(true) {
     var instructor = "Franco";
 }
-console.log(instructor);
+console.log(instructor); //imprime "Franco"
 ```
 
 ```javascript
 var instructor = "Tony";
-console.log(instructor);
+console.log(instructor); // imprime "tony"
 (function() {
    if(true) {
-      var instructor = "Franco";
-      console.log(instructor);
+      var instructor = "Franco"; 
+      console.log(instructor); // imprime "Franco"
    }
 })();
-console.log(instructor);
+console.log(instructor); // imprime "tony", "Franco", "Tony"(?)
 ```
 
 ```javascript
@@ -66,7 +66,7 @@ let pm = "Franco";
 if (true) {
     var instructor = "The Flash";
     let pm = "Reverse Flash";
-    console.log(instructor);
+    console.log(instructor); 
     console.log(pm);
 }
 console.log(instructor);
