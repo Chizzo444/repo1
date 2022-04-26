@@ -1,5 +1,5 @@
 "use strict";
-///a
+///aaaaa
 function BinarioADecimal(num) {
   let cantidad = String(num);
   let array = [...cantidad];
