@@ -13,9 +13,9 @@ function counter() {
   return acumulador; 
    }
 }
-const contador1 = counter();
+/*const contador1 = counter();
 contador1();
-contador1();
+contador1();*/
 
 function cacheFunction(cb) {
   // Usa closures para crear un caché para la función cb.
@@ -31,15 +31,12 @@ function cacheFunction(cb) {
   // usá hasOwnProperty!
  let cacheObj = {}
  return function(arg){
-     if(cacheObj.hasOwnProperty(arg)){
-       return cacheObj[arg];
-     }else{
-       let cacheObj = cb(arg);
-       return cacheObj[arg]
+     if(!cacheObj.hasOwnProperty(arg)){
+        cacheObj[arg]= cb(arg);
      }
-  }
+     return cacheObj[arg];
  }
-
+}
 // Bind
 
 var instructor = {
@@ -78,17 +75,9 @@ function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena){
 // Modificar los undefined por el código correspondiente en cada caso
 // Pista, tenes que usar bind para "bindear" algunos parámetros de la función crearCadena.
 
-let textoAsteriscos = function (){
-  return this.delimitadorIzquierda;  
-}
-
-let textoGuiones = function (){
-  return this.textoGuiones;
-}
-
-let textoUnderscore =  function (){
-  return this.delimitadorDerecha;
-}
+let textoAsteriscos =  crearCadena.bind(this, "*","*");
+let textoGuiones = crearCadena.bind(this,"-","-");
+let textoUnderscore = crearCadena.bind(this,"_","_");
 
 
 // No modifiquen nada debajo de esta linea
