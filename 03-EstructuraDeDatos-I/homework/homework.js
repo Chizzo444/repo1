@@ -24,9 +24,9 @@ function nFibonacci(n) {
   // nFibonacci(6) // 1 // el elemento 6 es 8
   if (n === 0) return 0
   if (n === 1) return 1
-  return nFibonacci(n - 1) + nFibonacci(n - 2)
+  return nFibonacci(n - 2) + nFibonacci(n - 1)
 }
-
+//console.log(nFibonacci(13))
 // Para esta parte no es necesario utilizar recursión.
 // Implementa la clase Queue que debe contener los siguientes métodos:
 // enqueue: Agrega un valor a la queue. Respeta el orden existente.
@@ -45,6 +45,7 @@ Queue.prototype.enqueue = function (x) {
 Queue.prototype.dequeue = function () {
   return this.arreglo.shift();
 }
+
 
 //console.log(Queue.size)
 // No modifiquen nada debajo de esta linea
